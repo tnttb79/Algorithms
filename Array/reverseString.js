@@ -12,4 +12,7 @@ function reverseString(str) {
   return tempArray.join("");
 }
 
+// javascript built-in methods:
+const reverseString1 = (str) => str.split("").reverse().join("");
 console.log(reverseString(str));
+console.log(reverseString1(str));
