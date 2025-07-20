@@ -2,10 +2,7 @@
 
 class LinkedList {
   constructor(value) {
-    this.head = {
-      value,
-      next: null,
-    };
+    this.head = new Node(value);
     this.tail = this.head;
     this.length = 1;
   }
@@ -56,6 +53,28 @@ class LinkedList {
     this.head = newNode;
     this.length++;
   }
+  insert(index, value) {
+    const newNode = new Node(value);
+    const preNode = this.traverseToIndex1(index - 1);
+    const nextNode = this.traverseToIndex1(index);
+    preNode.next = newNode;
+    newNode.next = nextNode;
+  }
+  traverseToIndex(index) {
+    let targetNode = this.head;
+    for (let i = 0; i < index; i++) {
+      targetNode = targetNode.next;
+    }
+    return targetNode;
+  }
+  traverseToIndex1(index) {
+    let counter = 0;
+    let currentNode = this.head;
+    while (counter != index) {
+      currentNode = currentNode.next;
+      counter++;
+    }
+  }
 }
 
 class Node {
@@ -65,9 +84,15 @@ class Node {
   }
 }
 
-const myLinkedList = new LinkedList(10);
+const myLinkedList = new LinkedList(0);
+myLinkedList.append(1);
+myLinkedList.append(2);
+myLinkedList.append(3);
+myLinkedList.append(4);
 myLinkedList.append(5);
-myLinkedList.append(15);
-myLinkedList.prepend(1);
 myLinkedList.printListWForLoop();
 myLinkedList.printListWWhileLoop();
+console.log(myLinkedList.traverseToIndex(0));
+console.log(myLinkedList.traverseToIndex(5));
+myLinkedList.insert(10, 6);
+myLinkedList.printListWForLoop();
