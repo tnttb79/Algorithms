@@ -45,6 +45,7 @@ class LinkedList {
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
+    console.log(`this value was appended ${val}`);
   }
 
   prepend(val) {
@@ -52,13 +53,20 @@ class LinkedList {
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
+    console.log(`this value was prepended ${val}`);
   }
   insert(index, value) {
+    // prepend if <= 0
+    if (index <= 0) return this.prepend(value);
+    // append if >= list length
+    if (index >= this.length) return this.append(value);
     const newNode = new Node(value);
-    const preNode = this.traverseToIndex1(index - 1);
-    const nextNode = this.traverseToIndex1(index);
+    const preNode = this.traverseToIndex(index - 1);
+    const nextNode = this.traverseToIndex(index);
     preNode.next = newNode;
     newNode.next = nextNode;
+    this.length++;
+    return this.printListWForLoop();
   }
   traverseToIndex(index) {
     let targetNode = this.head;
@@ -67,16 +75,9 @@ class LinkedList {
     }
     return targetNode;
   }
-  traverseToIndex1(index) {
-    let counter = 0;
-    let currentNode = this.head;
-    while (counter != index) {
-      currentNode = currentNode.next;
-      counter++;
-    }
-  }
 }
 
+// class for a node
 class Node {
   constructor(value) {
     this.value = value;
@@ -95,4 +96,5 @@ myLinkedList.printListWWhileLoop();
 console.log(myLinkedList.traverseToIndex(0));
 console.log(myLinkedList.traverseToIndex(5));
 myLinkedList.insert(10, 6);
+myLinkedList.insert(0, 15);
 myLinkedList.printListWForLoop();
