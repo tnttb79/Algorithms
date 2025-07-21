@@ -68,6 +68,14 @@ class LinkedList {
     this.length++;
     return this.printListWForLoop();
   }
+  remove(index) {
+    if (index < 0 || index > this.length) return undefined;
+    const preNode = this.traverseToIndex(index - 1);
+    const removedNode = preNode.next;
+    preNode.next = removedNode.next;
+    this.length--;
+    return removedNode;
+  }
   traverseToIndex(index) {
     let targetNode = this.head;
     for (let i = 0; i < index; i++) {
@@ -97,4 +105,6 @@ console.log(myLinkedList.traverseToIndex(0));
 console.log(myLinkedList.traverseToIndex(5));
 myLinkedList.insert(10, 6);
 myLinkedList.insert(0, 15);
+myLinkedList.printListWForLoop();
+myLinkedList.remove(2);
 myLinkedList.printListWForLoop();
