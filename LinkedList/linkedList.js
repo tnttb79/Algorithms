@@ -92,9 +92,10 @@ class LinkedList {
       this.head = newLinkedList.head;
     } else {
       // 2-pointer approach
+      this.tail = this.head;
       let previous = null;
       let current = this.head;
-      let following;
+      let following = null;
       while (current) {
         // keep 1 pointer to reference to a target node for the next iteration
         following = current.next;
