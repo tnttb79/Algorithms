@@ -45,7 +45,6 @@ class LinkedList {
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
-    console.log(`this value was appended ${val}`);
   }
 
   prepend(val) {
@@ -53,7 +52,6 @@ class LinkedList {
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
-    console.log(`this value was prepended ${val}`);
   }
   insert(index, value) {
     // prepend if <= 0
@@ -83,6 +81,32 @@ class LinkedList {
     }
     return targetNode;
   }
+  reverse(a) {
+    // naive approach, more space needed
+    if (a) {
+      const newLinkedList = new LinkedList(this.tail.value);
+      for (let i = this.length - 2; i >= 0; i--) {
+        newLinkedList.append(this.traverseToIndex(i).value);
+      }
+      // To modify the original list
+      this.head = newLinkedList.head;
+    } else {
+      // 2-pointer approach
+      let previous = null;
+      let current = this.head;
+      let following;
+      while (current) {
+        // keep 1 pointer to reference to a target node for the next iteration
+        following = current.next;
+        // establish the current connection logic of this itteration
+        current.next = previous;
+        // set previous and current for the next iteration
+        previous = current;
+        current = following;
+      }
+      this.head = previous;
+    }
+  }
 }
 
 // class for a node
@@ -104,7 +128,9 @@ myLinkedList.printListWWhileLoop();
 console.log(myLinkedList.traverseToIndex(0));
 console.log(myLinkedList.traverseToIndex(5));
 myLinkedList.insert(10, 6);
-myLinkedList.insert(0, 15);
+// myLinkedList.insert(0, 15);
 myLinkedList.printListWForLoop();
-myLinkedList.remove(2);
+// myLinkedList.remove(2);
+myLinkedList.printListWForLoop();
+myLinkedList.reverse();
 myLinkedList.printListWForLoop();
