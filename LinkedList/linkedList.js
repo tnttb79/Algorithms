@@ -1,6 +1,6 @@
 //1 - 10 - 5 - 15;
 
-class LinkedList {
+export class LinkedList {
   constructor(value) {
     this.head = new Node(value);
     this.tail = this.head;
@@ -111,7 +111,7 @@ class LinkedList {
 }
 
 // class for a node
-class Node {
+export class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
