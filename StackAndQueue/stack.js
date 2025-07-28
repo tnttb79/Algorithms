@@ -36,9 +36,8 @@ class Stack {
   }
   push(value) {
     const newItem = new Node(value);
-    if (!this.length) {
-      this.bottom == this.newItem;
-    } else newItem.next = this.top;
+    if (!this.length) this.bottom = newItem;
+    newItem.next = this.top;
     this.top = newItem;
     this.length++;
   }
@@ -79,4 +78,12 @@ class Stack {
 // myStack.currentStack.printListWForLoop();
 
 // Giga Chad Stack =))
-const test
+const stack = new Stack();
+stack.push(0);
+stack.push(1);
+stack.push(2);
+stack.push(3);
+stack.push(4);
+stack.printListWForLoop();
+console.log("top:" + stack.top.value);
+console.log("bottom", stack.bottom.value);
