@@ -118,20 +118,20 @@ export class Node {
   }
 }
 
-const myLinkedList = new LinkedList(0);
-myLinkedList.append(1);
-myLinkedList.append(2);
-myLinkedList.append(3);
-myLinkedList.append(4);
-myLinkedList.append(5);
-myLinkedList.printListWForLoop();
-myLinkedList.printListWWhileLoop();
-console.log(myLinkedList.traverseToIndex(0));
-console.log(myLinkedList.traverseToIndex(5));
-myLinkedList.insert(10, 6);
-// myLinkedList.insert(0, 15);
-myLinkedList.printListWForLoop();
-// myLinkedList.remove(2);
-myLinkedList.printListWForLoop();
-myLinkedList.reverse();
-myLinkedList.printListWForLoop();
+// const myLinkedList = new LinkedList(0);
+// myLinkedList.append(1);
+// myLinkedList.append(2);
+// myLinkedList.append(3);
+// myLinkedList.append(4);
+// myLinkedList.append(5);
+// myLinkedList.printListWForLoop();
+// myLinkedList.printListWWhileLoop();
+// console.log(myLinkedList.traverseToIndex(0));
+// console.log(myLinkedList.traverseToIndex(5));
+// myLinkedList.insert(10, 6);
+// // myLinkedList.insert(0, 15);
+// myLinkedList.printListWForLoop();
+// // myLinkedList.remove(2);
+// myLinkedList.printListWForLoop();
+// myLinkedList.reverse();
+// myLinkedList.printListWForLoop();
