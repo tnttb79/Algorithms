@@ -41,9 +41,20 @@ class Stack {
     this.top = newItem;
     this.length++;
   }
-  pop() {}
-  peek() {}
-  isEmpty() {}
+  pop() {
+    if (!this.length) return undefined;
+    const removedItem = this.top;
+    this.top = this.top.next;
+    this.length--;
+    if (!this.length) this.bottom = null;
+    return removedItem.value;
+  }
+  peek() {
+    return this.top ? this.top.value : undefined;
+  }
+  isEmpty() {
+    return !this.length;
+  }
 
   printListWForLoop() {
     const arrayOfNodes = [];
@@ -79,11 +90,15 @@ class Stack {
 
 // Giga Chad Stack =))
 const stack = new Stack();
+console.log("isEmpty: ", stack.isEmpty());
 stack.push(0);
 stack.push(1);
 stack.push(2);
 stack.push(3);
 stack.push(4);
+console.log("peeked: ", stack.peek());
+console.log("removed:", stack.pop().value);
 stack.printListWForLoop();
 console.log("top:" + stack.top.value);
 console.log("bottom", stack.bottom.value);
+console.log("isEmpty: ", stack.isEmpty());
