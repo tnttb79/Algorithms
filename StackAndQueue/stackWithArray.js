@@ -1,6 +1,7 @@
 import { Node } from "../LinkedList/linkedList.js";
 // can be simplified with just array, but worth to try things out
 class Stack {
+  #currentStack;
   constructor() {
     this.currentStack = [];
     this.top = null;
@@ -58,3 +59,4 @@ console.log("top:" + stack.top);
 console.log("bottom", stack.bottom);
 console.log("isEmpty: ", stack.isEmpty());
 stack.printStack();
+console.log("currentStack:" + stack.currentStack);
