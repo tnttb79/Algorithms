@@ -2,6 +2,7 @@
 var tester = "hey hi";
 
 function newFunction() {
-  var hello = "hello";
+  tester = "hello";
 }
+newFunction();
 console.log(tester);
