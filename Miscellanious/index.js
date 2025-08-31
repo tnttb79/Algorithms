@@ -1,5 +1,5 @@
 // Var Let Const
-var tester = "hey hi";
+let tester = "hey hi";
 
 function newFunction() {
   tester = "hello";

@@ -15,8 +15,15 @@ const factorialLoop = (number) => {
 console.log(factorialRecursive(5));
 console.log(factorialLoop(5));
 
-// const fibonacciR = (n) => {
-//   let resultSequence = "";
-//   if(n ==1) return 0
-//   return
-// }
+const fibonacciLoop = (n) => {
+  let result = [];
+  let current = 0;
+  let next = 1;
+  for (let i = 0; i <= n; i++) {
+    result.push(current);
+    [current, next] = [next, next + current];
+  }
+  return result;
+};
+
+console.log(fibonacciR(5));
