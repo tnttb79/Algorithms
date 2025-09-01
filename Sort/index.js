@@ -1,7 +1,4 @@
 //buble sort:
-
-const arr = [4, 7, 2, 9, 5, 1, 10, 3, 6, 8];
-
 const bubbleSort = (array) => {
   let isChange = true;
   while (isChange) {
@@ -49,32 +46,55 @@ const insertionSort = (array) => {
 };
 // console.log(insertionSort(arr));
 
-// const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
+const numbers = [99, 44, 6, 2, 1, 5, 63, 87, 283, 4, 0];
 
-// function insertionSort1(array) {
-//   const length = array.length;
+function insertionSort1(array) {
+  const length = array.length;
 
-//   for (let i = 1; i < length; i++) {
-//     5;
-//     if (array[i] < array[0]) {
-//       // Move number to the first position
-//       array.unshift(array.splice(i, 1)[0]);
-//     } else {
-//       // Find where number should go
-//       for (let j = 1; j < i; j++) {
-//         // if (array[i] > array[j - 1] && array[i] < array[j]) {
-//         //   // Move number to the right spot
-//         //   array.splice(j, 0, array.splice(i, 1)[0]);
-//         // }
-//         if (array[j] > array[i]) {
-//           array.splice(j, 0, array.splice(i, 1)[0]);
-//           break;
-//         }
-//       }
-//     }
-//   }
+  for (let i = 1; i < length; i++) {
+    5;
+    if (array[i] < array[0]) {
+      // Move number to the first position
+      array.unshift(array.splice(i, 1)[0]);
+    } else {
+      // Find where number should go
+      for (let j = 1; j < i; j++) {
+        // if (array[i] > array[j - 1] && array[i] < array[j]) {
+        //   // Move number to the right spot
+        //   array.splice(j, 0, array.splice(i, 1)[0]);
+        // }
+        if (array[j] > array[i]) {
+          array.splice(j, 0, array.splice(i, 1)[0]);
+          break;
+        }
+      }
+    }
+  }
 
-//   return array;
-// }
+  return array;
+}
 
 // console.log(insertionSort1(numbers));
+
+const arr = [4, 7, 2, 9, 5, 1, 10, 3, 6, 8];
+
+const merge2SortedArrays = (arr1, arr2) => {
+  let result = [];
+  while (arr1.length || arr2.length) {
+    if (arr1.length && arr2.length)
+      result.push(arr1[0] > arr2[0] ? arr2.shift() : arr1.shift());
+    else result.push(arr1.length ? arr1.shift() : arr2.shift());
+  }
+  return result;
+};
+const mergeSort = (arr) => {
+  if (arr.length <= 1) return arr;
+  else {
+    const middle = Math.floor(arr.length / 2);
+    return merge2SortedArrays(
+      mergeSort(arr.slice(0, middle)),
+      mergeSort(arr.slice(middle))
+    );
+  }
+};
+console.log(mergeSort(arr));
