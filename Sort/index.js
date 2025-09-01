@@ -17,3 +17,16 @@ const bubbleSort = (array) => {
 };
 
 console.log(bubbleSort(arr));
+
+const selectionSort = (array) => {
+  for (let i = 0; i < array.length; i++) {
+    let smallestIndex = i;
+    for (let j = i; j < array.length; j++) {
+      if (array[smallestIndex] > array[j]) smallestIndex = j;
+    }
+    if (smallestIndex !== i)
+      [array[i], array[smallestIndex]] = [array[smallestIndex], array[i]];
+  }
+  return arr;
+};
+// console.log(selectionSort(arr));
