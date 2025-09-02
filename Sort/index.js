@@ -97,4 +97,29 @@ const mergeSort = (arr) => {
     );
   }
 };
-console.log(mergeSort(arr));
+// console.log(mergeSort(arr));
+
+const quickSort = (arr) => {
+  if (arr.length <= 1) return arr;
+  //sort w/ pivot logic here:
+  const pivot = arr[arr.length - 1];
+  let i,
+    j = 0;
+  for (j; j < arr.length - 1; j++) {
+    if (arr[j] > pivot) continue;
+    else {
+      if (i == undefined) i = 0;
+      else i++;
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+  }
+  // recursion for return:p
+  return [
+    ...quickSort(arr.slice(0, i + 1)),
+    pivot,
+    ...quickSort(arr.slice(i + 1, arr.length - 1)),
+  ];
+};
+
+console.log(quickSort(arr));
+console.log(quickSort([9, 2, 11, 10]));
