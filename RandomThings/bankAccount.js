@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var BankAccount = /** @class */ (function () {
     function BankAccount() {
         var _this = this;

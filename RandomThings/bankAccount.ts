@@ -17,3 +17,5 @@ class BankAccount {
   }
   GetBalance = (): number => this.balance;
 }
+
+export {};
