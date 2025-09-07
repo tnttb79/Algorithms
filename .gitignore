@@ -1,0 +1,15 @@
+# Visual Studio
+.vs/
+**/bin/
+**/obj/
+[Dd]ebug/
+[Rr]elease/
+*.user
+*.suo
+*.pdb
+*.log
+
+# Node/TypeScript
+node_modules/
+dist/
+build/
