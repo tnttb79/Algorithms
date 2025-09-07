@@ -52,3 +52,5 @@ class Car {
 const driver = new Driver("Thang");
 const car = new Car(driver);
 car.drive();
+
+export {};
