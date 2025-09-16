@@ -1,4 +1,4 @@
-// two sum//
+// two sum //
 //brute force O(n2)
 var twoSum = function (nums, target) {
   for (let i = 0; i < array.length; i++) {
@@ -20,7 +20,7 @@ var twoSum = function (nums, target) {
   }
 };
 
-// Merge Two Sorted Lists: O(m+n)
+// Merge Two Sorted Lists: O(m+n) //
 var mergeTwoLists = function (list1, list2) {
   tempHead = new ListNode();
   current = tempHead;
@@ -35,4 +35,44 @@ var mergeTwoLists = function (list1, list2) {
     current = current.next;
   }
   return tempHead.next;
+};
+
+// 121. Best Time to Buy and Sell Stock //
+//Brute force O(n2)
+var maxProfit = function (prices) {
+  let profit = 0;
+  for (let i = 0; i < prices.length - 1; i++) {
+    let buy = prices[i];
+    for (let j = i + 1; j < prices.length; j++) {
+      let sell = prices[j];
+      const tempProfit = sell - buy;
+      if (tempProfit <= 0) continue;
+      else {
+        if (tempProfit > profit) profit = tempProfit;
+      }
+      //  profit = tempProfit > profit ? tempProfit : profit
+    }
+  }
+  return profit;
+};
+// O(n)
+var maxProfit = function (prices) {
+  if (prices.length < 2) return 0;
+
+  let max = 0;
+  let low = 0;
+  let high = 1;
+
+  while (high < prices.length) {
+    const profit = prices[high] - prices[low];
+
+    if (profit < 0) {
+      // found a new lower buy price
+      low = high;
+    } else if (profit > max) {
+      max = profit;
+    }
+    high++;
+  }
+  return max;
 };
