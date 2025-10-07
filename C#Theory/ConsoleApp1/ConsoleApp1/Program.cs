@@ -1,10 +1,37 @@
 ﻿
 using ConsoleApp1;
 
-var myCalculator = new Caculator();
-var addOperation = new Add();
-var result = myCalculator.Calculate(addOperation, 2, 3);
-Console.WriteLine(result);
+TwoSumSolution mySolution = new();
+
+Console.WriteLine($"this is toString result {mySolution.ToString()}");
+
+
+var myQuery = new String(default(string));
+Console.WriteLine($"this is my string {myQuery}");
+Console.ReadLine();
+
+
+
+
+
+
+
+
+
+
+//var myCalculator = new Caculator();
+//var addOperation = new Add();
+//var result = myCalculator.Calculate(addOperation, 2, 3);
+//string myString = "Hello, World!"; 
+//int myInt = 42;
+//Dictionary<string, int> myDict = new Dictionary<string, int>()
+//{
+//    {"one", 1},
+//    {"two", 2},
+//    {"three", 3}
+//};
+//string? test = Convert.ToString(myDict["something"]);
+//Console.WriteLine(result);
 
 
 
