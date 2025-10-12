@@ -100,15 +100,15 @@ var invertTree = function (root) {
 };
 
 // 242.Valid Anagram
-var isAnagram = function(s, t) {
-  if(s.length !== t.length) return false;
-  const mySet = new Set();
-  for(char of s){
-    mySet.get(char) = !mySet.get(char) ? 1 : mySet.get(char) + 1;
-  };
-  for(char of t){
-    if(mySet.get(char) == 0) return false;
-    mySet.get(char) = mySet.get(char) - 1;
+var isAnagram = function (s, t) {
+  if (s.length !== t.length) return false;
+  const myMap = new Map();
+  for (char of s) {
+    myMap.set(char, !myMap.get(char) ? 1 : myMap.get(char) + 1);
+  }
+  for (char of t) {
+    if (myMap.get(char) == 0) return false;
+    myMap.set(char, myMap.get(char) - 1);
   }
   return true;
 };
