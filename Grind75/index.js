@@ -98,3 +98,17 @@ var invertTree = function (root) {
   invertTree(root.right);
   return root;
 };
+
+// 242.Valid Anagram
+var isAnagram = function(s, t) {
+  if(s.length !== t.length) return false;
+  const mySet = new Set();
+  for(char of s){
+    mySet.get(char) = !mySet.get(char) ? 1 : mySet.get(char) + 1;
+  };
+  for(char of t){
+    if(mySet.get(char) == 0) return false;
+    mySet.get(char) = mySet.get(char) - 1;
+  }
+  return true;
+};
