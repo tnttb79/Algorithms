@@ -11,6 +11,7 @@ namespace ConsoleApp1
         public int Search(int[] nums, int target)
         {
             int low = 0, high = nums.Length - 1;
+            Array.BinarySearch(nums, target);
             while (low < high)
             {
                 int mid = low + (int)Math.Floor(((double)high -low +1)/2);

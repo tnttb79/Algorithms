@@ -124,3 +124,28 @@ var search = function (nums, target) {
   }
   return nums[low] == target ? 1 : 0;
 };
+
+// 733. Flood fill:
+var floodFill = function (image, sr, sc, color) {
+  // conditions to end early
+  if (color == image[sr][sc]) return image;
+  // fill will take of validtions and fill color
+  fill(image, sr, sc, color, image[sr][sc]);
+  return image;
+};
+
+var fill = (image, sr, sc, colorToFill, colorOfStart) => {
+  // not out of bound
+  if (sr < 0 || sr >= image.length || sc < 0 || sc >= image[sr].length)
+    return image;
+  // match with parent
+  if (image[sr][sc] != colorOfStart) return;
+
+  image[sr][sc] = colorToFill;
+
+  // recursively fill 4 surrounding neibourgh. Will end if out of bound or doesn't match with original cell's color
+  fill(image, sr - 1, sc, colorToFill, colorOfStart);
+  fill(image, sr + 1, sc, colorToFill, colorOfStart);
+  fill(image, sr, sc - 1, colorToFill, colorOfStart);
+  fill(image, sr, sc + 1, colorToFill, colorOfStart);
+};
