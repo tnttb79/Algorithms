@@ -149,3 +149,19 @@ var fill = (image, sr, sc, colorToFill, colorOfStart) => {
   fill(image, sr, sc - 1, colorToFill, colorOfStart);
   fill(image, sr, sc + 1, colorToFill, colorOfStart);
 };
+
+
+//235. LCA of a BST
+var lowestCommonAncestor = function(root, p, q) {
+    while(root){
+      //go right
+      if(p.val > root.val && q.val > root.val){
+        root = root.right;
+      // go left
+      } else if(p.val < root.val && q.val < root.val){
+        root = root.left;
+      } else{
+        return root;
+      }
+    }
+};
