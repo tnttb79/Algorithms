@@ -1,14 +1,13 @@
 ﻿
 using ConsoleApp1;
+//TwoSumSolution mySolution = new();
 
-TwoSumSolution mySolution = new();
-
-Console.WriteLine($"this is toString result {mySolution.ToString()}");
+//Console.WriteLine($"this is toString result {mySolution.ToString()}");
 
 
-var myQuery = new String(default(string));
-Console.WriteLine($"this is my string {myQuery}");
-Console.ReadLine();
+//var myQuery = new String(default(string));
+//Console.WriteLine($"this is my string {myQuery}");
+//Console.ReadLine();
 
 
 
@@ -112,3 +111,16 @@ Console.ReadLine();
 
 
 // Calculator:
+
+
+
+
+// Testing my queue:
+MyQueue<int> myQueue = new();
+myQueue.Enqueue( 1 );
+myQueue.Enqueue( 2 );
+myQueue.Enqueue( 3 );
+Console.WriteLine($"value now {myQueue.Peek()}");
+myQueue.Dequeue();
+Console.WriteLine($"value now after dequeue {myQueue.Peek()}");
+Console.ReadLine();
