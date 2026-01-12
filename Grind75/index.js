@@ -150,18 +150,39 @@ var fill = (image, sr, sc, colorToFill, colorOfStart) => {
   fill(image, sr, sc + 1, colorToFill, colorOfStart);
 };
 
-
 //235. LCA of a BST
-var lowestCommonAncestor = function(root, p, q) {
-    while(root){
-      //go right
-      if(p.val > root.val && q.val > root.val){
-        root = root.right;
+var lowestCommonAncestor = function (root, p, q) {
+  while (root) {
+    //go right
+    if (p.val > root.val && q.val > root.val) {
+      root = root.right;
       // go left
-      } else if(p.val < root.val && q.val < root.val){
-        root = root.left;
-      } else{
-        return root;
-      }
+    } else if (p.val < root.val && q.val < root.val) {
+      root = root.left;
+    } else {
+      return root;
     }
+  }
+};
+
+//110. Balance Binary Tree
+var isBalanced = function (root) {
+  function dfs(root) {
+    // base case
+    if (!root) return [true, 0];
+
+    //details
+    const [isLeftBalanced, leftHeight] = dfs(root.left);
+    const [isRightBalanced, rightHeight] = dfs(root.right);
+
+    const height = Math.max(leftHeight, rightHeight) + 1;
+    const isBalanced =
+      Math.abs(leftHeight - rightHeight) <= 1 &&
+      isLeftBalanced &&
+      isRightBalanced;
+
+    // common goal
+    return [isBalanced, height];
+  }
+  return dfs(root)[0];
 };
